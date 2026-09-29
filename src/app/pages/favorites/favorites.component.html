@@ -1,0 +1,83 @@
+<div class="favorites-page">
+
+  <header class="page-header">
+
+    <div class="back-row">
+      <button routerLink="/" class="back-btn">←</button>
+
+      <div>
+        <h1>Favorites</h1>
+        <p>Your saved JCPM content</p>
+      </div>
+    </div>
+
+  </header>
+
+
+  <main class="favorites-container">
+
+    <div
+      *ngIf="favorites.length > 0"
+      class="favorites-grid">
+
+      <article
+        class="favorite-card"
+        *ngFor="let item of favorites"
+        (click)="openFavorite(item)">
+
+        <div class="favorite-icon">
+          ♡
+        </div>
+
+        <div class="favorite-content">
+
+          <span class="type">
+            {{ getTypeName(item.type) }}
+          </span>
+
+          <h2>
+            {{ item.title }}
+          </h2>
+
+          <p *ngIf="item.subtitle">
+            {{ item.subtitle }}
+          </p>
+
+        </div>
+
+        <button
+          class="remove-btn"
+          type="button"
+          (click)="removeFavorite(item, $event)">
+          ♥
+        </button>
+
+      </article>
+
+    </div>
+
+
+    <div
+      *ngIf="favorites.length === 0"
+      class="empty-state">
+
+      <div class="empty-icon">♡</div>
+
+      <h2>No Favorites Yet</h2>
+
+      <p>
+        Save your favorite songs and messages
+        and they will appear here.
+      </p>
+
+      <button
+        routerLink="/songs"
+        class="explore-btn">
+        Explore Songs
+      </button>
+
+    </div>
+
+  </main>
+
+</div>

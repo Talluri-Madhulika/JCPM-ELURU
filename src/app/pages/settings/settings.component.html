@@ -1,0 +1,44 @@
+<div class="settings-page">
+
+  <div class="page-header">
+    <div class="page-icon">⚙</div>
+    <h1>Settings</h1>
+    <p>Manage your JCPM preferences</p>
+  </div>
+
+  <div class="settings-container">
+
+    <div class="settings-card">
+      <div class="settings-icon">🔔</div>
+
+      <div class="settings-info">
+        <h2>Notifications</h2>
+        <p>Receive JCPM announcements and meeting reminders.</p>
+      </div>
+
+      <button
+        *ngIf="!notificationsEnabled"
+        (click)="enableNotifications()"
+        [disabled]="loading">
+        {{ loading ? 'Enabling...' : 'Enable' }}
+      </button>
+
+      <span
+        *ngIf="notificationsEnabled"
+        class="enabled">
+        Enabled
+      </span>
+    </div>
+
+    <div class="settings-card">
+      <div class="settings-icon">✝</div>
+
+      <div class="settings-info">
+        <h2>JCPM ELURU</h2>
+        <p>Jesus Christ Prayer Ministries</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>

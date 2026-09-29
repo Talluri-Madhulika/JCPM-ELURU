@@ -1,0 +1,92 @@
+<div class="content-page">
+
+  <header class="page-header">
+
+    <button routerLink="/" class="back-btn">
+      ←
+    </button>
+
+    <div>
+      <h1>Messages</h1>
+      <p>Messages of faith and encouragement</p>
+    </div>
+
+  </header>
+
+
+  <main class="content-container">
+
+    <div class="search-box">
+
+      <input
+        type="text"
+        [(ngModel)]="searchText"
+        (input)="searchMessages()"
+        placeholder="Search messages...">
+
+    </div>
+
+
+    <div class="content-grid">
+
+      <article
+        class="content-card"
+        *ngFor="let message of filteredMessages"
+        (click)="openMessage(message)">
+
+        <button
+          type="button"
+          class="favorite-btn"
+          (click)="toggleFavorite(message, $event)">
+
+          {{ isFavorite(message) ? '♥' : '♡' }}
+
+        </button>
+
+
+        <div class="content-icon">
+          ✦
+        </div>
+
+
+        <div class="card-content">
+
+          <span class="category">
+            {{ message.category || 'General' }}
+          </span>
+
+          <h2>
+            {{ message.title || 'Untitled Message' }}
+          </h2>
+
+          <p>
+            {{ message.content | slice:0:85 }}
+            <span *ngIf="message.content?.length > 85">
+              ...
+            </span>
+          </p>
+
+        </div>
+
+        <span class="arrow">›</span>
+
+      </article>
+
+    </div>
+
+
+    <div
+      *ngIf="filteredMessages.length === 0"
+      class="empty-state">
+
+      <div>✦</div>
+
+      <h2>No Messages Found</h2>
+
+      <p>Try another search.</p>
+
+    </div>
+
+  </main>
+
+</div>

@@ -1,0 +1,65 @@
+<div class="signup-page">
+
+  <div class="signup-card">
+
+    <div class="signup-icon">
+      ✝
+    </div>
+
+    <h1>Create Account</h1>
+
+    <p>Join JCPM ELURU</p>
+
+    <div class="input-group">
+      <label>Full Name</label>
+
+      <input
+        type="text"
+        placeholder="Enter your name"
+        [(ngModel)]="name"
+      >
+    </div>
+
+    <div class="input-group">
+      <label>Email</label>
+
+      <input
+        type="email"
+        placeholder="Enter your email"
+        [(ngModel)]="email"
+      >
+    </div>
+
+    <div class="input-group">
+      <label>Password</label>
+
+      <input
+        type="password"
+        placeholder="Create a password"
+        [(ngModel)]="password"
+      >
+    </div>
+
+    <p
+      *ngIf="errorMessage"
+      class="error-message"
+    >
+      {{ errorMessage }}
+    </p>
+
+    <button
+      type="button"
+      (click)="signup()"
+      [disabled]="loading"
+    >
+      {{ loading ? 'Creating Account...' : 'Create Account' }}
+    </button>
+
+    <p class="login-link">
+      Already have an account?
+      <a routerLink="/login">Sign In</a>
+    </p>
+
+  </div>
+
+</div>

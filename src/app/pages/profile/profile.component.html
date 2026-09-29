@@ -1,0 +1,139 @@
+<div class="profile-page">
+
+  <!-- HEADER -->
+  <div class="profile-header">
+
+    <button
+      class="back-btn"
+      (click)="goHome()">
+      ←
+    </button>
+
+    <h1>My Profile</h1>
+
+  </div>
+
+
+  <!-- PROFILE CARD -->
+  <div class="profile-card">
+
+    <!-- INITIAL PROFILE AVATAR -->
+    <div
+      class="profile-avatar"
+      [style.background]="getAvatarGradient()">
+
+      {{ getInitial() }}
+
+    </div>
+
+
+    <!-- NAME -->
+    <h2>
+      {{ user?.name || 'JCPM User' }}
+    </h2>
+
+
+    <!-- EMAIL -->
+    <p class="email">
+      {{ user?.email || '' }}
+    </p>
+
+
+    <!-- ROLE -->
+    <div class="role-badge">
+      {{ isAdmin() ? 'Administrator' : 'JCPM Member' }}
+    </div>
+
+  </div>
+
+
+  <!-- PROFILE OPTIONS -->
+  <div class="profile-options">
+
+    <!-- FAVORITES -->
+    <button
+      class="profile-option"
+      routerLink="/favorites">
+
+      <span class="option-icon">
+        ♡
+      </span>
+
+      <span>
+        <strong>Favorites</strong>
+        <small>View your saved content</small>
+      </span>
+
+      <span class="arrow">
+        ›
+      </span>
+
+    </button>
+
+
+    <!-- SETTINGS -->
+    <button
+      class="profile-option"
+      routerLink="/settings">
+
+      <span class="option-icon">
+        ⚙
+      </span>
+
+      <span>
+        <strong>Settings</strong>
+        <small>Manage app settings</small>
+      </span>
+
+      <span class="arrow">
+        ›
+      </span>
+
+    </button>
+
+
+    <!-- ADMIN DASHBOARD -->
+    <button
+      *ngIf="isAdmin()"
+      class="profile-option"
+      routerLink="/admin">
+
+      <span class="option-icon">
+        ♛
+      </span>
+
+      <span>
+        <strong>Admin Dashboard</strong>
+        <small>Manage JCPM content</small>
+      </span>
+
+      <span class="arrow">
+        ›
+      </span>
+
+    </button>
+
+
+    <!-- LOGOUT -->
+    <button
+      class="profile-option logout-option"
+      (click)="logout()">
+
+      <span class="option-icon">
+        ↪
+      </span>
+
+      <span>
+        <strong>Logout</strong>
+        <small>Sign out of your account</small>
+      </span>
+
+      <span class="arrow">
+        ›
+      </span>
+
+    </button>
+
+  </div>
+
+</div>

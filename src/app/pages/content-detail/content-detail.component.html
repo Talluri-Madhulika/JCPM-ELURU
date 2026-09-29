@@ -1,0 +1,180 @@
+<div class="detail-page">
+
+  <header class="detail-header">
+
+    <button
+      type="button"
+      class="back-btn"
+      (click)="goBack()">
+
+      ←
+
+    </button>
+
+    <div class="header-title">
+      {{ getPageTitle() }}
+    </div>
+
+  </header>
+
+
+  <main class="detail-container">
+
+    <div
+      *ngIf="loading"
+      class="loading">
+
+      <div class="loading-circle"></div>
+      <p>Loading...</p>
+
+    </div>
+
+
+    <ng-container *ngIf="!loading && item">
+
+      <section class="title-section">
+
+        <div>
+
+          <span class="type-label">
+            {{ item.category || getPageTitle() }}
+          </span>
+
+          <h1>
+            {{
+              item.titleEnglish ||
+              item.title ||
+              'JCPM ELURU'
+            }}
+          </h1>
+
+          <p
+            *ngIf="item.titleTelugu"
+            class="telugu-title">
+
+            {{ item.titleTelugu }}
+
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="detail-favorite"
+          (click)="toggleFavorite()">
+
+          {{ isFavorite() ? '♥' : '♡' }}
+
+        </button>
+
+      </section>
+
+
+      <section
+        *ngIf="getEmbedUrl()"
+        class="video-card">
+
+        <div class="video-wrapper">
+
+          <iframe
+            [src]="getEmbedUrl() | safeUrl"
+            title="JCPM ELURU YouTube Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+
+        <a
+          *ngIf="getYoutubeUrl()"
+          [href]="getYoutubeUrl()"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="youtube-btn">
+
+          ▶ Watch on YouTube
+
+        </a>
+
+      </section>
+
+
+      <section class="content-section">
+
+        <div class="section-heading">
+
+          <span class="section-icon">
+            ✦
+          </span>
+
+          <h2>
+            {{ getContentTitle() }}
+          </h2>
+
+        </div>
+
+
+        <div class="content-text">
+
+          {{
+            item.lyricsEnglish ||
+            item.lyrics ||
+            item.content ||
+            item.description ||
+            item.message ||
+            'No content available.'
+          }}
+
+        </div>
+
+
+        <div
+          *ngIf="item.lyricsTelugu"
+          class="telugu-content">
+
+          {{ item.lyricsTelugu }}
+
+        </div>
+
+      </section>
+
+
+      <div
+        *ngIf="item.category"
+        class="category-chip">
+
+        {{ item.category }}
+
+      </div>
+
+    </ng-container>
+
+
+    <section
+      *ngIf="!loading && !item"
+      class="not-found">
+
+      <div>✦</div>
+
+      <h2>Content Not Found</h2>
+
+      <p>
+        Please go back and try again.
+      </p>
+
+      <button
+        type="button"
+        (click)="goBack()">
+
+        Go Back
+
+      </button>
+
+    </section>
+
+  </main>
+
+</div>

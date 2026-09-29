@@ -1,0 +1,44 @@
+<nav class="navbar">
+
+  <div class="logo">
+    JCPM ELURU
+  </div>
+
+  <div class="nav-links">
+    <a routerLink="/" routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}">Home</a>
+
+    <a routerLink="/songs" routerLinkActive="active">Songs</a>
+
+    <a routerLink="/messages" routerLinkActive="active">Messages</a>
+
+    <a routerLink="/action-songs" routerLinkActive="active">Action Songs</a>
+
+    <a routerLink="/short-messages" routerLinkActive="active">Short Messages</a>
+
+    <a routerLink="/events" routerLinkActive="active">Events</a>
+
+    <a routerLink="/announcements" routerLinkActive="active">Announcements</a>
+
+    <a routerLink="/favorites" routerLinkActive="active">Favorites</a>
+  </div>
+
+  <div class="auth">
+
+  <ng-container *ngIf="!authService.isLoggedIn()">
+    <a routerLink="/login">Login</a>
+  </ng-container>
+
+  <ng-container *ngIf="authService.isLoggedIn()">
+    <span class="user-name">
+      {{ authService.getUser()?.name }}
+    </span>
+
+    <button type="button" (click)="logout()">
+      Logout
+    </button>
+  </ng-container>
+
+</div>
+
+</nav>

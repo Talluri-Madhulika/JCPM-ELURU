@@ -1,0 +1,223 @@
+<div class="home-page">
+
+  <!-- HEADER -->
+  <section class="welcome-header">
+
+    <div class="welcome-text">
+
+      <div class="greeting">
+        {{ greeting }}
+
+        <span *ngIf="greeting === 'Good Morning'">☀️</span>
+        <span *ngIf="greeting === 'Good Afternoon'">☀️</span>
+        <span *ngIf="greeting === 'Good Night'">🌙</span>
+      </div>
+
+      <h1>
+        Welcome to<br>
+        JCPM ELURU
+      </h1>
+
+    </div>
+
+
+    <div class="church-brand">
+
+      <img
+        src="assets/jcpm-church.jpeg"
+        alt="JCPM Church">
+
+      <div>
+        <strong>JCPM ELURU</strong>
+        <span>CHURCH</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DAILY PROMISE HERO -->
+  <section class="promise-card">
+
+    <img
+      src="assets/jcpm-church.jpeg"
+      alt="JCPM Church"
+      class="promise-image">
+
+    <div class="promise-dark"></div>
+
+    <div class="promise-content">
+
+      <div class="promise-label">
+        <span>✧</span>
+        DAILY PROMISE
+      </div>
+
+
+      <!-- DYNAMIC DAILY PROMISE -->
+      <ng-container *ngIf="dailyPromise; else noPromise">
+
+        <h2>
+          {{ dailyPromise.reference }}
+        </h2>
+
+        <p>
+          "{{ dailyPromise.verse }}"
+        </p>
+
+        <div
+          class="promise-note"
+          *ngIf="dailyPromise.note">
+
+          {{ dailyPromise.note }}
+
+        </div>
+
+      </ng-container>
+
+
+      <!-- NO PROMISE AVAILABLE -->
+      <ng-template #noPromise>
+
+        <h2>
+          Today's Promise
+        </h2>
+
+        <p>
+          Today's promise will appear here.
+        </p>
+
+      </ng-template>
+
+    </div>
+
+  </section>
+
+
+  <!-- EXPLORE -->
+  <section class="explore-section">
+
+    <div class="explore-grid">
+
+
+      <!-- SONGS -->
+      <a
+        routerLink="/songs"
+        class="feature-card">
+
+        <div class="icon-circle">
+          🎵
+        </div>
+
+        <span>
+          Songs
+        </span>
+
+      </a>
+
+
+      <!-- MESSAGES -->
+      <a
+        routerLink="/messages"
+        class="feature-card">
+
+        <div class="icon-circle">
+          📖
+        </div>
+
+        <span>
+          Messages
+        </span>
+
+      </a>
+
+
+      <!-- ACTION SONGS -->
+      <a
+        routerLink="/action-songs"
+        class="feature-card">
+
+        <div class="icon-circle">
+          💃
+        </div>
+
+        <span>
+          Action<br>
+          Songs
+        </span>
+
+      </a>
+
+
+      <!-- SHORT MESSAGES -->
+      <a
+        routerLink="/short-messages"
+        class="feature-card">
+
+        <div class="icon-circle">
+          💬
+        </div>
+
+        <span>
+          Short<br>
+          Messages
+        </span>
+
+      </a>
+
+
+      <!-- EVENTS & ANNOUNCEMENTS -->
+      <a
+        routerLink="/events"
+        class="feature-card">
+
+        <div class="icon-circle">
+          📣
+        </div>
+
+        <span>
+          Events &<br>
+          Announcements
+        </span>
+
+      </a>
+
+
+      <!-- SOCIAL -->
+      <a
+        routerLink="/social"
+        class="feature-card">
+
+        <div class="icon-circle">
+          ▶️
+        </div>
+
+        <span>
+          Social
+        </span>
+
+      </a>
+
+
+      <!-- FAVORITES -->
+      <a
+        routerLink="/favorites"
+        class="feature-card">
+
+        <div class="icon-circle">
+          ❤️
+        </div>
+
+        <span>
+          Favorites
+        </span>
+
+      </a>
+
+
+    </div>
+
+  </section>
+
+</div>

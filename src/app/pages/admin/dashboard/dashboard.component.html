@@ -1,0 +1,1444 @@
+<div class="admin-dashboard">
+
+  <h1>Admin Dashboard</h1>
+
+  <!-- =====================================================
+       DASHBOARD CARDS
+  ====================================================== -->
+
+  <div class="dashboard-cards">
+
+    <button
+      class="dashboard-card"
+      (click)="selectedSection = 'songs'">
+
+      <div class="dashboard-card-icon">🎵</div>
+
+      <div class="dashboard-card-content">
+        <h3>Songs</h3>
+        <p>Manage church songs and lyrics</p>
+      </div>
+
+      <span class="dashboard-card-arrow">›</span>
+
+    </button>
+
+
+    <button
+      class="dashboard-card"
+      (click)="selectedSection = 'messages'">
+
+      <div class="dashboard-card-icon">📖</div>
+
+      <div class="dashboard-card-content">
+        <h3>Messages</h3>
+        <p>Manage church messages</p>
+      </div>
+
+      <span class="dashboard-card-arrow">›</span>
+
+    </button>
+
+
+    <button
+      class="dashboard-card"
+      (click)="selectedSection = 'shortMessages'">
+
+      <div class="dashboard-card-icon">💬</div>
+
+      <div class="dashboard-card-content">
+        <h3>Short Messages</h3>
+        <p>Manage short messages</p>
+      </div>
+
+      <span class="dashboard-card-arrow">›</span>
+
+    </button>
+
+
+    <button
+      class="dashboard-card"
+      (click)="selectedSection = 'actionSongs'">
+
+      <div class="dashboard-card-icon">💃</div>
+
+      <div class="dashboard-card-content">
+        <h3>Action Songs</h3>
+        <p>Manage action songs</p>
+      </div>
+
+      <span class="dashboard-card-arrow">›</span>
+
+    </button>
+
+
+    <button
+      class="dashboard-card"
+      (click)="selectedSection = 'announcements'">
+
+      <div class="dashboard-card-icon">📣</div>
+
+      <div class="dashboard-card-content">
+        <h3>Announcements</h3>
+        <p>Manage church announcements</p>
+      </div>
+
+      <span class="dashboard-card-arrow">›</span>
+
+    </button>
+
+
+    <button
+      class="dashboard-card"
+      (click)="selectedSection = 'dailyPromise'">
+
+      <div class="dashboard-card-icon">✨</div>
+
+      <div class="dashboard-card-content">
+        <h3>Daily Promise</h3>
+        <p>Manage today's Bible promise</p>
+      </div>
+
+      <span class="dashboard-card-arrow">›</span>
+
+    </button>
+
+
+    <button
+      class="dashboard-card"
+      (click)="selectedSection = 'notifications'">
+
+      <div class="dashboard-card-icon">🔔</div>
+
+      <div class="dashboard-card-content">
+        <h3>Notifications</h3>
+        <p>Manage app notifications</p>
+      </div>
+
+      <span class="dashboard-card-arrow">›</span>
+
+    </button>
+
+
+    <button
+      class="dashboard-card"
+      (click)="selectedSection = 'users'">
+
+      <div class="dashboard-card-icon">👥</div>
+
+      <div class="dashboard-card-content">
+        <h3>Users</h3>
+        <p>
+          {{ users.length }} users ·
+          {{ adminCount }}/{{ maxAdmins }} admins
+        </p>
+      </div>
+
+      <span class="dashboard-card-arrow">›</span>
+
+    </button>
+
+  </div>
+
+
+  <!-- =====================================================
+       SONGS
+  ====================================================== -->
+
+  <div
+    *ngIf="selectedSection === 'songs'"
+    class="section">
+
+    <div class="section-header">
+
+      <h2>Manage Songs</h2>
+
+      <button
+        class="add-btn"
+        (click)="openSongForm()">
+
+        + Add Song
+
+      </button>
+
+    </div>
+
+
+    <div
+      *ngIf="showSongForm"
+      class="song-form">
+
+      <h2>Add New Song</h2>
+
+      <input
+        type="text"
+        placeholder="Song Title in Telugu"
+        [(ngModel)]="newSong.titleTelugu">
+
+      <input
+        type="text"
+        placeholder="Song Title in English"
+        [(ngModel)]="newSong.titleEnglish">
+
+      <textarea
+        placeholder="Song Lyrics in Telugu"
+        [(ngModel)]="newSong.lyricsTelugu">
+      </textarea>
+
+      <textarea
+        placeholder="Song Lyrics in English"
+        [(ngModel)]="newSong.lyricsEnglish">
+      </textarea>
+
+      <input
+        type="text"
+        placeholder="Category"
+        [(ngModel)]="newSong.category">
+
+      <input
+        type="text"
+        placeholder="YouTube Link (Optional)"
+        [(ngModel)]="newSong.youtubeLink">
+
+
+      <div class="form-buttons">
+
+        <button
+          class="save-btn"
+          (click)="addSong()">
+
+          Save Song
+
+        </button>
+
+        <button
+          class="cancel-btn"
+          (click)="closeSongForm()">
+
+          Cancel
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      *ngIf="songs.length === 0 && !showSongForm"
+      class="empty">
+
+      No songs added yet.
+
+    </div>
+
+
+    <div class="song-list">
+
+      <div
+        class="song-card"
+        *ngFor="let song of songs">
+
+        <div>
+
+          <h3>{{ song.titleTelugu }}</h3>
+
+          <p>{{ song.titleEnglish }}</p>
+
+          <p>{{ song.category }}</p>
+
+        </div>
+
+
+        <div class="actions">
+
+          <button
+            class="delete-btn"
+            (click)="deleteSong(song._id)">
+
+            Delete
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       MESSAGES
+  ====================================================== -->
+
+  <div
+    *ngIf="selectedSection === 'messages'"
+    class="section">
+
+    <div class="section-header">
+
+      <h2>Manage Messages</h2>
+
+      <button
+        class="add-btn"
+        (click)="openMessageForm()">
+
+        + Add Message
+
+      </button>
+
+    </div>
+
+
+    <div
+      *ngIf="showMessageForm"
+      class="song-form">
+
+      <h2>
+        {{
+          editingMessageId
+            ? 'Edit Message'
+            : 'Add New Message'
+        }}
+      </h2>
+
+
+      <input
+        type="text"
+        placeholder="Message Title"
+        [(ngModel)]="newMessage.title">
+
+
+      <textarea
+        placeholder="Message Content"
+        [(ngModel)]="newMessage.content">
+      </textarea>
+
+
+      <input
+        type="text"
+        placeholder="Category"
+        [(ngModel)]="newMessage.category">
+
+
+      <input
+        type="text"
+        placeholder="YouTube Link (Optional)"
+        [(ngModel)]="newMessage.youtubeLink">
+
+
+      <div class="form-buttons">
+
+        <button
+          class="save-btn"
+          (click)="saveMessage()">
+
+          {{
+            editingMessageId
+              ? 'Update Message'
+              : 'Save Message'
+          }}
+
+        </button>
+
+
+        <button
+          class="cancel-btn"
+          (click)="closeMessageForm()">
+
+          Cancel
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      *ngIf="
+        messages.length === 0 &&
+        !showMessageForm
+      "
+      class="empty">
+
+      No messages added yet.
+
+    </div>
+
+
+    <div class="song-list">
+
+      <div
+        class="song-card"
+        *ngFor="let message of messages">
+
+        <div>
+
+          <h3>{{ message.title }}</h3>
+
+          <p>{{ message.content }}</p>
+
+          <p>{{ message.category }}</p>
+
+          <p *ngIf="message.youtubeLink">
+            YouTube: {{ message.youtubeLink }}
+          </p>
+
+        </div>
+
+
+        <div class="actions">
+
+          <button
+            class="edit-btn"
+            (click)="editMessage(message)">
+
+            Edit
+
+          </button>
+
+
+          <button
+            class="delete-btn"
+            (click)="deleteMessage(message._id)">
+
+            Delete
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       SHORT MESSAGES
+  ====================================================== -->
+
+  <div
+    *ngIf="selectedSection === 'shortMessages'"
+    class="section">
+
+    <div class="section-header">
+
+      <h2>Manage Short Messages</h2>
+
+      <button
+        class="add-btn"
+        (click)="openShortMessageForm()">
+
+        + Add Short Message
+
+      </button>
+
+    </div>
+
+
+    <div
+      *ngIf="showShortMessageForm"
+      class="song-form">
+
+      <h2>
+        {{
+          editingShortMessageId
+            ? 'Edit Short Message'
+            : 'Add New Short Message'
+        }}
+      </h2>
+
+
+      <input
+        type="text"
+        placeholder="Short Message Title"
+        [(ngModel)]="newShortMessage.title">
+
+
+      <textarea
+        placeholder="Short Message Content"
+        [(ngModel)]="newShortMessage.content">
+      </textarea>
+
+
+      <input
+        type="text"
+        placeholder="Category"
+        [(ngModel)]="newShortMessage.category">
+
+
+      <input
+        type="text"
+        placeholder="YouTube Link (Optional)"
+        [(ngModel)]="newShortMessage.youtubeLink">
+
+
+      <input
+        type="text"
+        placeholder="Audio Link (Optional)"
+        [(ngModel)]="newShortMessage.audioLink">
+
+
+      <div class="form-buttons">
+
+        <button
+          class="save-btn"
+          (click)="saveShortMessage()">
+
+          {{
+            editingShortMessageId
+              ? 'Update Short Message'
+              : 'Save Short Message'
+          }}
+
+        </button>
+
+
+        <button
+          class="cancel-btn"
+          (click)="closeShortMessageForm()">
+
+          Cancel
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      *ngIf="
+        shortMessages.length === 0 &&
+        !showShortMessageForm
+      "
+      class="empty">
+
+      No short messages added yet.
+
+    </div>
+
+
+    <div class="song-list">
+
+      <div
+        class="song-card"
+        *ngFor="let shortMessage of shortMessages">
+
+        <div>
+
+          <h3>{{ shortMessage.title }}</h3>
+
+          <p>{{ shortMessage.content }}</p>
+
+          <p>{{ shortMessage.category }}</p>
+
+          <p *ngIf="shortMessage.youtubeLink">
+            YouTube: {{ shortMessage.youtubeLink }}
+          </p>
+
+          <p *ngIf="shortMessage.audioLink">
+            Audio: {{ shortMessage.audioLink }}
+          </p>
+
+        </div>
+
+
+        <div class="actions">
+
+          <button
+            class="edit-btn"
+            (click)="editShortMessage(shortMessage)">
+
+            Edit
+
+          </button>
+
+
+          <button
+            class="delete-btn"
+            (click)="deleteShortMessage(shortMessage._id)">
+
+            Delete
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       ACTION SONGS
+  ====================================================== -->
+
+  <div
+    *ngIf="selectedSection === 'actionSongs'"
+    class="section">
+
+    <div class="section-header">
+
+      <h2>Manage Action Songs</h2>
+
+      <button
+        class="add-btn"
+        (click)="openActionSongForm()">
+
+        + Add Action Song
+
+      </button>
+
+    </div>
+
+
+    <div
+      *ngIf="showActionSongForm"
+      class="song-form">
+
+      <h2>
+        {{
+          editingActionSongId
+            ? 'Edit Action Song'
+            : 'Add New Action Song'
+        }}
+      </h2>
+
+
+      <input
+        type="text"
+        placeholder="Action Song Title"
+        [(ngModel)]="newActionSong.title">
+
+
+      <textarea
+        placeholder="Action Song Content / Lyrics"
+        [(ngModel)]="newActionSong.content">
+      </textarea>
+
+
+      <input
+        type="text"
+        placeholder="Category"
+        [(ngModel)]="newActionSong.category">
+
+
+      <input
+        type="text"
+        placeholder="YouTube Link (Optional)"
+        [(ngModel)]="newActionSong.youtubeLink">
+
+
+      <input
+        type="text"
+        placeholder="Audio Link (Optional)"
+        [(ngModel)]="newActionSong.audioLink">
+
+
+      <div class="form-buttons">
+
+        <button
+          class="save-btn"
+          (click)="saveActionSong()">
+
+          {{
+            editingActionSongId
+              ? 'Update Action Song'
+              : 'Save Action Song'
+          }}
+
+        </button>
+
+
+        <button
+          class="cancel-btn"
+          (click)="closeActionSongForm()">
+
+          Cancel
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      *ngIf="
+        actionSongs.length === 0 &&
+        !showActionSongForm
+      "
+      class="empty">
+
+      No action songs added yet.
+
+    </div>
+
+
+    <div class="song-list">
+
+      <div
+        class="song-card"
+        *ngFor="let actionSong of actionSongs">
+
+        <div>
+
+          <h3>{{ actionSong.title }}</h3>
+
+          <p>{{ actionSong.content }}</p>
+
+          <p>{{ actionSong.category }}</p>
+
+          <p *ngIf="actionSong.youtubeLink">
+            YouTube: {{ actionSong.youtubeLink }}
+          </p>
+
+          <p *ngIf="actionSong.audioLink">
+            Audio: {{ actionSong.audioLink }}
+          </p>
+
+        </div>
+
+
+        <div class="actions">
+
+          <button
+            class="edit-btn"
+            (click)="editActionSong(actionSong)">
+
+            Edit
+
+          </button>
+
+
+          <button
+            class="delete-btn"
+            (click)="deleteActionSong(actionSong._id)">
+
+            Delete
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       ANNOUNCEMENTS
+  ====================================================== -->
+
+  <div
+    *ngIf="selectedSection === 'announcements'"
+    class="section">
+
+    <div class="section-header">
+
+      <h2>Manage Announcements</h2>
+
+      <button
+        class="add-btn"
+        (click)="openAnnouncementForm()">
+
+        + Add Announcement
+
+      </button>
+
+    </div>
+
+
+    <div
+      *ngIf="showAnnouncementForm"
+      class="song-form">
+
+      <h2>
+        {{
+          editingAnnouncementId
+            ? 'Edit Announcement'
+            : 'Add New Announcement'
+        }}
+      </h2>
+
+
+      <input
+        type="text"
+        placeholder="Announcement Title"
+        [(ngModel)]="newAnnouncement.title">
+
+
+      <textarea
+        placeholder="Announcement Content"
+        [(ngModel)]="newAnnouncement.content">
+      </textarea>
+
+
+      <input
+        type="text"
+        placeholder="Date / Time"
+        [(ngModel)]="newAnnouncement.dateTime">
+
+
+      <input
+        type="text"
+        placeholder="Category"
+        [(ngModel)]="newAnnouncement.category">
+
+
+      <div class="form-buttons">
+
+        <button
+          class="save-btn"
+          (click)="saveAnnouncement()">
+
+          {{
+            editingAnnouncementId
+              ? 'Update Announcement'
+              : 'Save Announcement'
+          }}
+
+        </button>
+
+
+        <button
+          class="cancel-btn"
+          (click)="closeAnnouncementForm()">
+
+          Cancel
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      *ngIf="
+        announcements.length === 0 &&
+        !showAnnouncementForm
+      "
+      class="empty">
+
+      No announcements added yet.
+
+    </div>
+
+
+    <div class="song-list">
+
+      <div
+        class="song-card"
+        *ngFor="let announcement of announcements">
+
+        <div>
+
+          <h3>{{ announcement.title }}</h3>
+
+          <p>{{ announcement.content }}</p>
+
+          <p *ngIf="announcement.dateTime">
+            Date / Time: {{ announcement.dateTime }}
+          </p>
+
+          <p>{{ announcement.category }}</p>
+
+        </div>
+
+
+        <div class="actions">
+
+          <button
+            class="edit-btn"
+            (click)="editAnnouncement(announcement)">
+
+            Edit
+
+          </button>
+
+
+          <button
+            class="delete-btn"
+            (click)="deleteAnnouncement(announcement._id)">
+
+            Delete
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       DAILY PROMISE
+  ====================================================== -->
+
+  <div
+    *ngIf="selectedSection === 'dailyPromise'"
+    class="section">
+
+    <div class="section-header">
+
+      <h2>Manage Daily Promise</h2>
+
+      <button
+        class="add-btn"
+        (click)="openDailyPromiseForm()">
+
+        + Add Daily Promise
+
+      </button>
+
+    </div>
+
+
+    <div
+      *ngIf="showDailyPromiseForm"
+      class="song-form">
+
+      <h2>
+        {{
+          editingDailyPromiseId
+            ? 'Edit Daily Promise'
+            : 'Add Daily Promise'
+        }}
+      </h2>
+
+
+      <label>Date</label>
+
+      <input
+        type="date"
+        [(ngModel)]="newDailyPromise.date">
+
+
+      <input
+        type="text"
+        placeholder="Bible Reference - Example: Jeremiah 29:11"
+        [(ngModel)]="newDailyPromise.reference">
+
+
+      <textarea
+        placeholder="Bible Verse"
+        [(ngModel)]="newDailyPromise.verse">
+      </textarea>
+
+
+      <textarea
+        placeholder="Short Message / Note (Optional)"
+        [(ngModel)]="newDailyPromise.note">
+      </textarea>
+
+
+      <div class="form-buttons">
+
+        <button
+          class="save-btn"
+          (click)="saveDailyPromise()">
+
+          {{
+            editingDailyPromiseId
+              ? 'Update Promise'
+              : 'Save Promise'
+          }}
+
+        </button>
+
+
+        <button
+          class="cancel-btn"
+          (click)="closeDailyPromiseForm()">
+
+          Cancel
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      *ngIf="
+        dailyPromises.length === 0 &&
+        !showDailyPromiseForm
+      "
+      class="empty">
+
+      No Daily Promises added yet.
+
+    </div>
+
+
+    <div class="song-list">
+
+      <div
+        class="song-card"
+        *ngFor="let promise of dailyPromises">
+
+        <div>
+
+          <h3>{{ promise.reference }}</h3>
+
+          <p>{{ promise.verse }}</p>
+
+          <p>Date: {{ promise.date }}</p>
+
+          <p *ngIf="promise.note">
+            {{ promise.note }}
+          </p>
+
+        </div>
+
+
+        <div class="actions">
+
+          <button
+            class="edit-btn"
+            (click)="editDailyPromise(promise)">
+
+            Edit
+
+          </button>
+
+
+          <button
+            class="delete-btn"
+            (click)="deleteDailyPromise(promise._id)">
+
+            Delete
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       NOTIFICATIONS
+  ====================================================== -->
+
+  <div
+    *ngIf="selectedSection === 'notifications'"
+    class="section">
+
+    <div class="section-header">
+
+      <h2>Manage Notifications</h2>
+
+      <button
+        class="add-btn"
+        (click)="openNotificationForm()">
+
+        + Add Notification
+
+      </button>
+
+    </div>
+
+
+    <div
+      *ngIf="showNotificationForm"
+      class="song-form">
+
+      <h2>
+        {{
+          editingNotificationId
+            ? 'Edit Notification'
+            : 'Add New Notification'
+        }}
+      </h2>
+
+
+      <input
+        type="text"
+        placeholder="Notification Title"
+        [(ngModel)]="newNotification.title">
+
+
+      <textarea
+        placeholder="Notification Message"
+        [(ngModel)]="newNotification.message">
+      </textarea>
+
+
+      <label>Date</label>
+
+      <input
+        type="date"
+        [(ngModel)]="newNotification.date">
+
+
+      <label>Time</label>
+
+      <input
+        type="time"
+        [(ngModel)]="newNotification.time">
+
+
+      <label>Repeat</label>
+
+      <select [(ngModel)]="newNotification.repeat">
+
+        <option value="Once">Once</option>
+        <option value="Daily">Daily</option>
+        <option value="Weekly">Weekly</option>
+
+      </select>
+
+
+      <label>
+
+        <input
+          type="checkbox"
+          [(ngModel)]="newNotification.active">
+
+        Active
+
+      </label>
+
+
+      <div class="form-buttons">
+
+        <button
+          class="save-btn"
+          (click)="saveNotification()">
+
+          {{
+            editingNotificationId
+              ? 'Update Notification'
+              : 'Save Notification'
+          }}
+
+        </button>
+
+
+        <button
+          class="cancel-btn"
+          (click)="closeNotificationForm()">
+
+          Cancel
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      *ngIf="
+        notifications.length === 0 &&
+        !showNotificationForm
+      "
+      class="empty">
+
+      No notifications added yet.
+
+    </div>
+
+
+    <div class="song-list">
+
+      <div
+        class="song-card"
+        *ngFor="let notification of notifications">
+
+        <div>
+
+          <h3>{{ notification.title }}</h3>
+
+          <p>{{ notification.message }}</p>
+
+          <p>Date: {{ notification.date }}</p>
+
+          <p>Time: {{ notification.time }}</p>
+
+          <p>Repeat: {{ notification.repeat }}</p>
+
+          <p>
+            Status:
+            {{
+              notification.active
+                ? 'Active'
+                : 'Inactive'
+            }}
+          </p>
+
+        </div>
+
+
+        <div class="actions">
+
+          <button
+            class="edit-btn"
+            (click)="editNotification(notification)">
+
+            Edit
+
+          </button>
+
+
+          <button
+            class="delete-btn"
+            (click)="deleteNotification(notification._id)">
+
+            Delete
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       USERS / ADMIN MANAGEMENT
+  ====================================================== -->
+
+  <div
+    *ngIf="selectedSection === 'users'"
+    class="section users-section">
+
+    <div class="section-header">
+
+      <div>
+
+        <h2>Manage Users</h2>
+
+        <p>
+          Manage JCPM members and administrator access
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- ADMIN SUMMARY -->
+
+    <div class="admin-summary">
+
+      <div class="admin-summary-card">
+
+        <span>👥</span>
+
+        <div>
+
+          <strong>
+            {{ users.length }}
+          </strong>
+
+          <small>
+            Total Users
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="admin-summary-card">
+
+        <span>♛</span>
+
+        <div>
+
+          <strong>
+            {{ adminCount }}/{{ maxAdmins }}
+          </strong>
+
+          <small>
+            Administrators
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="admin-summary-card">
+
+        <span>🔐</span>
+
+        <div>
+
+          <strong>
+            {{ changeableAdmins }}
+          </strong>
+
+          <small>
+            Changeable Admins
+          </small>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div
+      *ngIf="usersLoading"
+      class="users-loading">
+
+      Loading users...
+
+    </div>
+
+
+    <div
+      *ngIf="!usersLoading"
+      class="users-list">
+
+
+      <div
+        class="user-admin-card"
+        *ngFor="let user of users">
+
+
+        <!-- INITIAL AVATAR -->
+
+        <div
+          class="user-avatar"
+          [style.background]="
+            getUserAvatarGradient(user)
+          ">
+
+          {{ getUserInitial(user) }}
+
+        </div>
+
+
+        <!-- USER DETAILS -->
+
+        <div class="user-details">
+
+          <h3>
+            {{ user.name }}
+          </h3>
+
+          <p>
+            {{ user.email }}
+          </p>
+
+
+          <span
+            *ngIf="user.isPermanent"
+            class="permanent-badge">
+
+            Permanent Admin
+
+          </span>
+
+
+          <span
+            *ngIf="
+              user.role === 'admin' &&
+              !user.isPermanent
+            "
+            class="admin-badge">
+
+            Administrator
+
+          </span>
+
+
+          <span
+            *ngIf="user.role !== 'admin'"
+            class="user-badge">
+
+            JCPM Member
+
+          </span>
+
+        </div>
+
+
+        <!-- ADMIN ACTION -->
+
+        <div class="user-admin-action">
+
+
+          <span
+            *ngIf="user.isPermanent"
+            class="protected-label">
+
+            Protected
+
+          </span>
+
+
+          <button
+            *ngIf="
+              user.role !== 'admin' &&
+              !user.isPermanent
+            "
+            class="make-admin-btn"
+            (click)="makeAdmin(user)"
+            [disabled]="adminCount >= maxAdmins">
+
+            Make Admin
+
+          </button>
+
+
+          <button
+            *ngIf="
+              user.role === 'admin' &&
+              !user.isPermanent
+            "
+            class="remove-admin-btn"
+            (click)="removeAdmin(user)">
+
+            Remove Admin
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div
+        *ngIf="users.length === 0"
+        class="empty-users">
+
+        <div>👥</div>
+
+        <h3>
+          No users found
+        </h3>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

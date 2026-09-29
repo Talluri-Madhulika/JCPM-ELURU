@@ -1,0 +1,92 @@
+<div class="content-page">
+
+  <header class="page-header">
+
+    <button routerLink="/" class="back-btn">
+      ←
+    </button>
+
+    <div>
+      <h1>Short Messages</h1>
+      <p>Short words with a lasting message</p>
+    </div>
+
+  </header>
+
+
+  <main class="content-container">
+
+    <div class="search-box">
+
+      <input
+        type="text"
+        [(ngModel)]="searchText"
+        (input)="searchShortMessages()"
+        placeholder="Search short messages...">
+
+    </div>
+
+
+    <div class="content-grid">
+
+      <article
+        class="content-card"
+        *ngFor="let item of filteredShortMessages"
+        (click)="openShortMessage(item)">
+
+        <button
+          class="favorite-btn"
+          type="button"
+          (click)="toggleFavorite(item, $event)">
+
+          {{ isFavorite(item) ? '♥' : '♡' }}
+
+        </button>
+
+
+        <div class="content-icon">
+          ✧
+        </div>
+
+
+        <div class="card-content">
+
+          <span class="category">
+            {{ item.category || 'General' }}
+          </span>
+
+          <h2>
+            {{ item.title || 'Untitled Message' }}
+          </h2>
+
+          <p>
+            {{ item.content | slice:0:85 }}
+            <span *ngIf="item.content?.length > 85">
+              ...
+            </span>
+          </p>
+
+        </div>
+
+        <span class="arrow">›</span>
+
+      </article>
+
+    </div>
+
+
+    <div
+      *ngIf="filteredShortMessages.length === 0"
+      class="empty-state">
+
+      <div>✧</div>
+
+      <h2>No Short Messages Found</h2>
+
+      <p>Try another search.</p>
+
+    </div>
+
+  </main>
+
+</div>

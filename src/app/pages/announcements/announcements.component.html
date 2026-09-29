@@ -1,0 +1,40 @@
+<div class="announcements-page">
+
+  <div class="page-header">
+    <div class="page-icon">!</div>
+    <h1>Announcements</h1>
+    <p>Stay connected with JCPM ELURU</p>
+  </div>
+
+  <div class="announcements-container">
+
+    <div *ngIf="announcements.length === 0" class="empty-state">
+      <div class="empty-icon">!</div>
+      <h2>No Announcements Yet</h2>
+      <p>Church announcements will appear here.</p>
+    </div>
+
+    <div class="announcement-card" *ngFor="let announcement of announcements">
+
+      <div class="announcement-icon">!</div>
+
+      <div class="announcement-info">
+        <h3>{{ announcement.title }}</h3>
+        <p>{{ announcement.content }}</p>
+
+        <div class="meta">
+          <span *ngIf="announcement.dateTime">
+            {{ announcement.dateTime }}
+          </span>
+
+          <span *ngIf="announcement.category">
+            {{ announcement.category }}
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

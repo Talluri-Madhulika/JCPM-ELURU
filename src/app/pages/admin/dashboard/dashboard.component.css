@@ -1,0 +1,852 @@
+/* ===================================================== 
+   JCPM ELURU - ADMIN DASHBOARD 
+===================================================== */ 
+ 
+.admin-dashboard { 
+  min-height: 100vh; 
+  box-sizing: border-box; 
+  padding: 35px 25px 60px; 
+  background: #f7f6fb; 
+  font-family: Arial, Helvetica, sans-serif; 
+  color: #24204f; 
+} 
+ 
+ 
+/* ===================================================== 
+   MAIN TITLE 
+===================================================== */ 
+ 
+.admin-dashboard > h1 { 
+  max-width: 1100px; 
+  margin: 0 auto 28px; 
+  font-family: Georgia, "Times New Roman", serif; 
+  font-size: 30px; 
+  font-weight: 600; 
+  color: #17144a; 
+  text-align: center; 
+} 
+ 
+ 
+/* ===================================================== 
+   TABS 
+===================================================== */ 
+ 
+.tabs { 
+  max-width: 1100px; 
+  margin: 0 auto 28px; 
+ 
+  display: flex; 
+  gap: 8px; 
+ 
+  padding: 7px; 
+ 
+  background: #ffffff; 
+  border-radius: 15px; 
+ 
+  box-shadow: 0 5px 20px rgba(40, 30, 90, 0.07); 
+ 
+  overflow-x: auto; 
+} 
+ 
+.tabs button { 
+  flex: 1; 
+  min-width: 120px; 
+ 
+  border: none; 
+  border-radius: 10px; 
+ 
+  padding: 11px 15px; 
+ 
+  background: transparent; 
+  color: #66627b; 
+ 
+  font-size: 12px; 
+  font-weight: 600; 
+ 
+  cursor: pointer; 
+  transition: all 0.2s ease; 
+ 
+  white-space: nowrap; 
+} 
+ 
+.tabs button:hover { 
+  background: #f1edff; 
+  color: #6850c9; 
+} 
+ 
+.tabs button.active { 
+  background: #6d55d9; 
+  color: #ffffff; 
+ 
+  box-shadow: 0 4px 12px rgba(109, 85, 217, 0.25); 
+} 
+ 
+ 
+/* ===================================================== 
+   SECTION 
+===================================================== */ 
+ 
+.section { 
+  max-width: 1100px; 
+  margin: 0 auto; 
+} 
+ 
+ 
+/* ===================================================== 
+   SECTION HEADER 
+===================================================== */ 
+ 
+.section-header { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+ 
+  gap: 15px; 
+  margin-bottom: 20px; 
+} 
+ 
+.section-header h2 { 
+  margin: 0; 
+ 
+  font-family: Georgia, "Times New Roman", serif; 
+  font-size: 22px; 
+  font-weight: 600; 
+ 
+  color: #211c58; 
+} 
+ 
+ 
+/* ===================================================== 
+   ADD BUTTON 
+===================================================== */ 
+ 
+.add-btn { 
+  border: none; 
+ 
+  padding: 11px 17px; 
+  border-radius: 10px; 
+ 
+  background: #6d55d9; 
+  color: #ffffff; 
+ 
+  font-size: 12px; 
+  font-weight: 600; 
+ 
+  cursor: pointer; 
+ 
+  box-shadow: 0 4px 12px rgba(109, 85, 217, 0.2); 
+ 
+  transition: all 0.2s ease; 
+} 
+ 
+.add-btn:hover { 
+  background: #5942c4; 
+  transform: translateY(-1px); 
+} 
+ 
+ 
+/* ===================================================== 
+   FORM CARD 
+===================================================== */ 
+ 
+.song-form { 
+  background: #ffffff; 
+ 
+  padding: 24px; 
+  margin-bottom: 25px; 
+ 
+  border-radius: 18px; 
+  border: 1px solid #ebe7f8; 
+ 
+  box-shadow: 0 7px 25px rgba(40, 30, 90, 0.07); 
+} 
+ 
+.song-form h2 { 
+  margin: 0 0 20px; 
+ 
+  font-family: Georgia, "Times New Roman", serif; 
+  font-size: 19px; 
+ 
+  color: #29215f; 
+} 
+ 
+ 
+/* ===================================================== 
+   INPUTS / SELECT / TEXTAREA 
+===================================================== */ 
+ 
+.song-form input, 
+.song-form textarea, 
+.song-form select { 
+  width: 100%; 
+  box-sizing: border-box; 
+ 
+  margin-bottom: 13px; 
+  padding: 12px 14px; 
+ 
+  border: 1px solid #e2def1; 
+  border-radius: 10px; 
+ 
+  background: #fbfaff; 
+  color: #29264a; 
+ 
+  font-family: Arial, Helvetica, sans-serif; 
+  font-size: 12px; 
+ 
+  outline: none; 
+ 
+  transition: 
+    border 0.2s ease, 
+    box-shadow 0.2s ease, 
+    background 0.2s ease; 
+} 
+ 
+.song-form input:focus, 
+.song-form textarea:focus, 
+.song-form select:focus { 
+  border-color: #8069df; 
+ 
+  box-shadow: 0 0 0 3px rgba(128, 105, 223, 0.10); 
+ 
+  background: #ffffff; 
+} 
+ 
+.song-form textarea { 
+  min-height: 110px; 
+  resize: vertical; 
+} 
+ 
+.song-form input::placeholder, 
+.song-form textarea::placeholder { 
+  color: #9995a8; 
+} 
+ 
+ 
+/* ===================================================== 
+   LABELS 
+===================================================== */ 
+ 
+.song-form > label { 
+  display: block; 
+ 
+  margin: 3px 0 7px; 
+ 
+  color: #514d68; 
+ 
+  font-size: 11px; 
+  font-weight: 600; 
+} 
+ 
+ 
+/* ===================================================== 
+   CHECKBOX 
+===================================================== */ 
+ 
+.song-form label input[type="checkbox"] { 
+  width: auto; 
+ 
+  margin: 0 7px 0 0; 
+ 
+  vertical-align: middle; 
+} 
+ 
+ 
+/* ===================================================== 
+   FORM BUTTONS 
+===================================================== */ 
+ 
+.form-buttons { 
+  display: flex; 
+ 
+  gap: 10px; 
+ 
+  margin-top: 8px; 
+} 
+ 
+.save-btn, 
+.cancel-btn { 
+  border: none; 
+ 
+  padding: 10px 18px; 
+ 
+  border-radius: 9px; 
+ 
+  font-size: 11px; 
+  font-weight: 600; 
+ 
+  cursor: pointer; 
+ 
+  transition: all 0.2s ease; 
+} 
+ 
+.save-btn { 
+  background: #6d55d9; 
+  color: #ffffff; 
+} 
+ 
+.save-btn:hover { 
+  background: #5942c4; 
+} 
+ 
+.cancel-btn { 
+  background: #eeeaf8; 
+  color: #57516f; 
+} 
+ 
+.cancel-btn:hover { 
+  background: #e2ddef; 
+} 
+ 
+ 
+/* ===================================================== 
+   EMPTY STATE 
+===================================================== */ 
+ 
+.empty { 
+  padding: 45px 20px; 
+ 
+  text-align: center; 
+ 
+  background: #ffffff; 
+ 
+  border: 1px dashed #dcd6ef; 
+  border-radius: 16px; 
+ 
+  color: #8b879b; 
+ 
+  font-size: 13px; 
+} 
+ 
+ 
+/* ===================================================== 
+   LIST 
+===================================================== */ 
+ 
+.song-list { 
+  display: flex; 
+ 
+  flex-direction: column; 
+ 
+  gap: 13px; 
+} 
+ 
+ 
+/* ===================================================== 
+   CARD 
+===================================================== */ 
+ 
+.song-card { 
+  display: flex; 
+ 
+  align-items: flex-start; 
+  justify-content: space-between; 
+ 
+  gap: 20px; 
+ 
+  padding: 18px 20px; 
+ 
+  background: #ffffff; 
+ 
+  border-radius: 16px; 
+ 
+  border: 1px solid #ebe7f5; 
+ 
+  box-shadow: 0 5px 18px rgba(40, 30, 90, 0.05); 
+ 
+  transition: all 0.2s ease; 
+} 
+ 
+.song-card:hover { 
+  transform: translateY(-2px); 
+ 
+  box-shadow: 0 8px 24px rgba(40, 30, 90, 0.08); 
+} 
+ 
+.song-card > div:first-child { 
+  flex: 1; 
+ 
+  min-width: 0; 
+} 
+ 
+.song-card h3 { 
+  margin: 0 0 7px; 
+ 
+  font-family: Georgia, "Times New Roman", serif; 
+ 
+  font-size: 16px; 
+  font-weight: 600; 
+ 
+  color: #262057; 
+} 
+ 
+.song-card p { 
+  margin: 5px 0; 
+ 
+  color: #777388; 
+ 
+  font-size: 11px; 
+ 
+  line-height: 1.5; 
+ 
+  word-break: break-word; 
+} 
+ 
+ 
+/* ===================================================== 
+   ACTION BUTTONS 
+===================================================== */ 
+ 
+.actions { 
+  display: flex; 
+ 
+  gap: 7px; 
+ 
+  flex-shrink: 0; 
+} 
+ 
+.edit-btn, 
+.delete-btn { 
+  border: none; 
+ 
+  padding: 8px 12px; 
+ 
+  border-radius: 8px; 
+ 
+  font-size: 10px; 
+  font-weight: 600; 
+ 
+  cursor: pointer; 
+ 
+  transition: all 0.2s ease; 
+} 
+ 
+.edit-btn { 
+  background: #eee9ff; 
+  color: #654dc9; 
+} 
+ 
+.edit-btn:hover { 
+  background: #ddd5ff; 
+} 
+ 
+.delete-btn { 
+  background: #fff0f0; 
+  color: #d34f4f; 
+} 
+ 
+.delete-btn:hover { 
+  background: #ffe0e0; 
+} 
+ 
+ 
+/* ===================================================== 
+   SELECT - SOCIAL CHANNEL ICON 
+===================================================== */ 
+ 
+.song-form select { 
+  cursor: pointer; 
+} 
+ 
+ 
+/* ===================================================== 
+   NOTIFICATION STATUS 
+===================================================== */ 
+ 
+.section:last-child .song-card p:last-child { 
+  font-weight: 600; 
+} 
+ 
+ 
+/* ===================================================== 
+   TABLET 
+===================================================== */ 
+ 
+@media (max-width: 800px) { 
+ 
+  .admin-dashboard { 
+    padding: 25px 16px 50px; 
+  } 
+ 
+  .tabs { 
+    margin-bottom: 22px; 
+  } 
+ 
+  .tabs button { 
+    flex: 0 0 auto; 
+  } 
+ 
+  .section-header h2 { 
+    font-size: 19px; 
+  } 
+} 
+ 
+ 
+/* ===================================================== 
+   MOBILE 
+===================================================== */ 
+ 
+@media (max-width: 600px) { 
+ 
+  .admin-dashboard { 
+    padding: 22px 12px 45px; 
+  } 
+ 
+  .admin-dashboard > h1 { 
+    font-size: 24px; 
+ 
+    margin-bottom: 20px; 
+  } 
+ 
+  .tabs { 
+    padding: 6px; 
+ 
+    border-radius: 12px; 
+ 
+    gap: 5px; 
+ 
+    scrollbar-width: none; 
+  } 
+ 
+  .tabs::-webkit-scrollbar { 
+    display: none; 
+  } 
+ 
+  .tabs button { 
+    min-width: auto; 
+ 
+    padding: 9px 12px; 
+ 
+    font-size: 10px; 
+  } 
+ 
+  .section-header { 
+    align-items: flex-start; 
+ 
+    flex-direction: column; 
+ 
+    margin-bottom: 16px; 
+  } 
+ 
+  .section-header h2 { 
+    font-size: 18px; 
+  } 
+ 
+  .add-btn { 
+    width: 100%; 
+ 
+    padding: 11px; 
+  } 
+ 
+  .song-form { 
+    padding: 17px; 
+ 
+    border-radius: 15px; 
+  } 
+ 
+  .song-form h2 { 
+    font-size: 17px; 
+  } 
+ 
+  .song-card { 
+    flex-direction: column; 
+ 
+    padding: 16px; 
+ 
+    gap: 13px; 
+  } 
+ 
+  .actions { 
+    width: 100%; 
+  } 
+ 
+  .edit-btn, 
+  .delete-btn { 
+    flex: 1; 
+ 
+    padding: 10px; 
+  } 
+ 
+  .form-buttons { 
+    flex-direction: column; 
+  } 
+ 
+  .save-btn, 
+  .cancel-btn { 
+    width: 100%; 
+ 
+    padding: 11px; 
+  } 
+} 
+ 
+ 
+/* ===================================================== 
+   SMALL MOBILE 
+===================================================== */ 
+ 
+@media (max-width: 380px) { 
+ 
+  .admin-dashboard > h1 { 
+    font-size: 22px; 
+  } 
+ 
+  .song-form { 
+    padding: 14px; 
+  } 
+ 
+  .song-card h3 { 
+    font-size: 14px; 
+  } 
+} 
+
+/* =====================================================
+   ADMIN DASHBOARD CARDS
+===================================================== */
+
+.dashboard-cards {
+  width: min(100%, 1050px);
+  margin: 25px auto;
+  padding: 0 18px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.dashboard-card {
+  min-height: 125px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #eee8f7;
+  border-radius: 22px;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 7px 24px rgba(70, 45, 100, 0.08);
+  transition: 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(70, 45, 100, 0.13);
+}
+
+.dashboard-card:active {
+  transform: scale(0.98);
+}
+
+.dashboard-card-icon {
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17px;
+  background: #eee8ff;
+  font-size: 25px;
+}
+
+.dashboard-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.dashboard-card-content h3 {
+  margin: 0 0 6px;
+  color: #30274b;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.dashboard-card-content p {
+  margin: 0;
+  color: #817b91;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.dashboard-card-arrow {
+  color: #aaa2b8;
+  font-size: 28px;
+}
+
+/* =====================================================
+   USERS / ADMIN MANAGEMENT
+===================================================== */
+
+.users-section {
+  width: min(100%, 1050px);
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+.section-subtitle {
+  margin: 5px 0 0;
+  color: #888296;
+  font-size: 12px;
+}
+
+.admin-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.admin-summary-card {
+  padding: 17px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #eee8f7;
+  border-radius: 18px;
+  box-shadow: 0 5px 18px rgba(70, 45, 100, 0.06);
+}
+
+.summary-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  background: #eee8ff;
+  font-size: 20px;
+}
+
+.admin-summary-card strong {
+  display: block;
+  color: #30274b;
+  font-size: 20px;
+}
+
+.admin-summary-card small {
+  color: #888296;
+  font-size: 10px;
+}
+
+.users-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.user-admin-card {
+  min-height: 82px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid #eee8f7;
+  border-radius: 20px;
+  box-shadow: 0 5px 18px rgba(70, 45, 100, 0.06);
+}
+
+.user-avatar {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  border: 3px solid #ffffff;
+  outline: 2px solid #e5dcf8;
+  box-shadow: 0 5px 14px rgba(80, 55, 130, 0.16);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.user-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-details h3 {
+  margin: 0 0 4px;
+  color: #30274b;
+  font-size: 15px;
+}
+
+.user-details p {
+  margin: 0 0 7px;
+  color: #888296;
+  font-size: 11px;
+  word-break: break-word;
+}
+
+.permanent-badge,
+.admin-badge,
+.user-badge {
+  display: inline-flex;
+  padding: 4px 9px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.permanent-badge { background: #eee7ff; color: #7048b5; }
+.admin-badge { background: #e9f7ff; color: #3684aa; }
+.user-badge { background: #f1f1f4; color: #77727d; }
+
+.user-admin-action {
+  flex-shrink: 0;
+}
+
+.make-admin-btn,
+.remove-admin-btn {
+  border: none;
+  padding: 9px 13px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.make-admin-btn { background: #7048b5; color: #ffffff; }
+.make-admin-btn:hover { background: #5e3c9c; }
+.make-admin-btn:disabled { background: #c9c2d5; cursor: not-allowed; }
+.remove-admin-btn { background: #fff0f2; color: #d05b70; }
+.remove-admin-btn:hover { background: #ffe2e7; }
+
+.protected-label {
+  display: inline-flex;
+  padding: 8px 11px;
+  border-radius: 10px;
+  background: #f1edff;
+  color: #7048b5;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.users-loading,
+.empty-users {
+  padding: 45px 20px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #eee8f7;
+  border-radius: 20px;
+  color: #888296;
+}
+
+.empty-users div { font-size: 35px; margin-bottom: 8px; }
+.empty-users h3 { margin: 0; color: #40365c; }
+
+@media (max-width: 650px) {
+  .dashboard-cards { grid-template-columns: 1fr; padding: 0 14px; }
+  .dashboard-card { min-height: 100px; }
+  .admin-summary { grid-template-columns: 1fr; }
+  .user-admin-card { align-items: flex-start; }
+  .user-admin-action { margin-left: auto; }
+  .make-admin-btn,
+  .remove-admin-btn,
+  .protected-label { white-space: nowrap; }
+}

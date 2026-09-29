@@ -1,0 +1,87 @@
+<div class="content-page">
+
+  <header class="page-header">
+
+    <button routerLink="/" class="back-btn">
+      ←
+    </button>
+
+    <div>
+      <h1>Songs</h1>
+      <p>JCPM Telugu & English Songs</p>
+    </div>
+
+  </header>
+
+
+  <main class="content-container">
+
+    <div class="search-box">
+      <input
+        type="text"
+        [(ngModel)]="searchText"
+        (input)="searchSongs()"
+        placeholder="Search songs...">
+    </div>
+
+
+    <div class="content-grid">
+
+      <article
+        class="content-card"
+        *ngFor="let song of filteredSongs"
+        (click)="openSong(song)">
+
+        <button
+          class="favorite-btn"
+          type="button"
+          (click)="toggleFavorite(song, $event)">
+
+          {{ isFavorite(song) ? '♥' : '♡' }}
+
+        </button>
+
+
+        <div class="music-icon">
+          ♫
+        </div>
+
+
+        <div class="card-content">
+
+          <span class="category">
+            {{ song.category || 'General' }}
+          </span>
+
+          <h2>
+            {{ song.titleEnglish || 'Untitled Song' }}
+          </h2>
+
+          <p *ngIf="song.titleTelugu">
+            {{ song.titleTelugu }}
+          </p>
+
+        </div>
+
+        <span class="arrow">›</span>
+
+      </article>
+
+    </div>
+
+
+    <div
+      *ngIf="filteredSongs.length === 0"
+      class="empty-state">
+
+      <div>♫</div>
+
+      <h2>No Songs Found</h2>
+
+      <p>Try another search.</p>
+
+    </div>
+
+  </main>
+
+</div>

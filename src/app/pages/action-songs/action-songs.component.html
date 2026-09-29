@@ -1,0 +1,92 @@
+<div class="content-page">
+
+  <header class="page-header">
+
+    <button routerLink="/" class="back-btn">
+      ←
+    </button>
+
+    <div>
+      <h1>Action Songs</h1>
+      <p>Sing, move and praise together</p>
+    </div>
+
+  </header>
+
+
+  <main class="content-container">
+
+    <div class="search-box">
+
+      <input
+        type="text"
+        [(ngModel)]="searchText"
+        (input)="searchActionSongs()"
+        placeholder="Search action songs...">
+
+    </div>
+
+
+    <div class="content-grid">
+
+      <article
+        class="content-card"
+        *ngFor="let item of filteredActionSongs"
+        (click)="openActionSong(item)">
+
+        <button
+          class="favorite-btn"
+          type="button"
+          (click)="toggleFavorite(item, $event)">
+
+          {{ isFavorite(item) ? '♥' : '♡' }}
+
+        </button>
+
+
+        <div class="content-icon">
+          ♪
+        </div>
+
+
+        <div class="card-content">
+
+          <span class="category">
+            {{ item.category || 'General' }}
+          </span>
+
+          <h2>
+            {{ item.title || 'Untitled Action Song' }}
+          </h2>
+
+          <p>
+            {{ item.content | slice:0:85 }}
+            <span *ngIf="item.content?.length > 85">
+              ...
+            </span>
+          </p>
+
+        </div>
+
+        <span class="arrow">›</span>
+
+      </article>
+
+    </div>
+
+
+    <div
+      *ngIf="filteredActionSongs.length === 0"
+      class="empty-state">
+
+      <div>♪</div>
+
+      <h2>No Action Songs Found</h2>
+
+      <p>Try another search.</p>
+
+    </div>
+
+  </main>
+
+</div>

@@ -1,0 +1,59 @@
+<div class="login-page">
+
+  <div class="login-card">
+
+    <div class="login-icon">
+      ✝
+    </div>
+
+    <h1>Welcome Back</h1>
+
+    <p>Sign in to JCPM ELURU</p>
+
+    <div class="input-group">
+      <label>Email</label>
+
+      <input
+        type="email"
+        placeholder="Enter your email"
+        [(ngModel)]="email"
+      >
+    </div>
+
+    <div class="input-group">
+      <label>Password</label>
+
+      <input
+        type="password"
+        placeholder="Enter your password"
+        [(ngModel)]="password"
+      >
+    </div>
+
+    <div class="forgot-password">
+      <a href="javascript:void(0)">Forgot Password?</a>
+    </div>
+
+    <p
+      *ngIf="errorMessage"
+      class="error-message"
+    >
+      {{ errorMessage }}
+    </p>
+
+    <button
+      type="button"
+      (click)="login()"
+      [disabled]="loading"
+    >
+      {{ loading ? 'Signing In...' : 'Sign In' }}
+    </button>
+
+    <p class="register">
+      Don't have an account?
+      <a routerLink="/signup">Create Account</a>
+    </p>
+
+  </div>
+
+</div>

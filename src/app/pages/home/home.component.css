@@ -1,0 +1,565 @@
+.home-page {
+  min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #f8ffd6 0%,
+    #f1fbd8 45%,
+    #eaf7ff 100%
+  );
+  padding-bottom: 100px;
+}
+
+/* =========================
+   WELCOME HEADER
+========================= */
+
+.welcome-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding: 34px 40px 28px;
+
+  max-width: 1000px;
+  margin: auto;
+}
+
+.greeting {
+  color: #55565d;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.welcome-text h1 {
+  margin: 0;
+
+  color: #18213b;
+
+  font-size: 39px;
+  line-height: 1.15;
+
+  font-weight: 800;
+}
+
+.church-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 8px;
+}
+
+.church-brand img {
+  width: 72px;
+  height: 72px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  border: 3px solid #e8e8f0;
+}
+
+.church-brand div {
+  display: flex;
+  flex-direction: column;
+}
+
+.church-brand strong {
+  color: #11121b;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.church-brand span {
+  color: #55565d;
+  font-size: 15px;
+  letter-spacing: 3px;
+  margin-top: 3px;
+}
+
+
+/* =========================
+   DAILY PROMISE
+========================= */
+
+.promise-card {
+  position: relative;
+
+  width: calc(100% - 80px);
+  max-width: 1000px;
+
+  height: 520px;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  border-radius: 38px;
+}
+
+.promise-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 38px;
+}
+
+.promise-dark {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 38px;
+
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.42),
+    rgba(0, 0, 0, 0.08)
+  );
+}
+
+.promise-content {
+  position: absolute;
+
+  left: 40px;
+  right: 40px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: white;
+}
+
+.promise-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #ffd43b;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 18px;
+}
+
+.promise-label span {
+  font-size: 22px;
+}
+
+.promise-content h2 {
+  margin: 0 0 18px;
+
+  color: white;
+
+  font-size: 32px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  max-width: 760px;
+}
+
+.promise-content p {
+  margin: 0;
+
+  color: white;
+
+  font-size: 16px;
+
+  line-height: 1.55;
+
+  max-width: 720px;
+}
+
+.promise-note {
+  margin-top: 15px;
+
+  color: white;
+
+  font-size: 13px;
+
+  line-height: 1.4;
+
+  max-width: 650px;
+}
+
+
+/* =========================
+   EXPLORE CARDS
+========================= */
+
+.explore-section {
+  width: calc(100% - 80px);
+
+  max-width: 1000px;
+
+  margin: 35px auto 0;
+}
+
+.explore-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.feature-card {
+  min-height: 100px;
+
+  background: #ffffff;
+
+  border: 1px solid #e3dacb;
+
+  border-radius: 24px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  text-decoration: none;
+
+  color: #1b2030;
+
+  box-shadow: 0 3px 10px rgba(60, 50, 30, 0.03);
+}
+
+.icon-circle {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 50%;
+
+  background: #f0effc;
+
+  color: #5144bb;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 27px;
+}
+
+.feature-card span:last-child {
+  text-align: center;
+
+  color: #161a29;
+
+  font-size: 13px;
+
+  line-height: 1.2;
+}
+
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav {
+  position: fixed;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  bottom: 10px;
+
+  width: calc(100% - 30px);
+
+  max-width: 700px;
+
+  height: 74px;
+
+  background: rgba(255, 253, 248, 0.97);
+
+  border: 1px solid #eee8dc;
+
+  border-radius: 38px;
+
+  box-shadow: 0 5px 25px rgba(60, 50, 30, 0.12);
+
+  display: flex;
+
+  justify-content: space-around;
+
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.bottom-nav a {
+  min-width: 60px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 4px;
+
+  text-decoration: none;
+
+  color: #6d7280;
+}
+
+.bottom-nav a span {
+  font-size: 25px;
+}
+
+.bottom-nav a small {
+  font-size: 12px;
+}
+
+.bottom-nav a.active {
+  color: #343b91;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .welcome-header {
+    padding: 50px 40px 38px;
+
+    align-items: flex-start;
+  }
+
+  .greeting {
+    font-size: 17px;
+
+    margin-bottom: 12px;
+  }
+
+  .welcome-text h1 {
+    font-size: 35px;
+  }
+
+  .church-brand {
+    gap: 8px;
+
+    margin-top: 0;
+  }
+
+  .church-brand img {
+    width: 68px;
+    height: 68px;
+  }
+
+  .church-brand strong {
+    font-size: 17px;
+  }
+
+  .church-brand span {
+    font-size: 13px;
+    letter-spacing: 2.5px;
+  }
+
+
+  /* HERO */
+
+  .promise-card {
+    width: calc(100% - 40px);
+
+    height: 460px;
+
+    border-radius: 38px;
+
+    margin-top: 0;
+  }
+
+  .promise-image {
+    object-position: center;
+  }
+
+  .promise-content {
+    left: 40px;
+    right: 28px;
+
+    top: 125px;
+
+    transform: none;
+  }
+
+  .promise-label {
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 0;
+  }
+
+  .promise-label span {
+    font-size: 21px;
+  }
+
+  .promise-content h2 {
+    font-size: 30px;
+
+    line-height: 1.2;
+
+    margin: 22px 0 18px;
+  }
+
+  .promise-content p {
+    font-size: 15px;
+
+    line-height: 1.65;
+  }
+
+  .promise-note {
+    display: none;
+  }
+
+
+  /* 4 COLUMNS — ORIGINAL MOBILE STYLE */
+
+  .explore-section {
+    width: calc(100% - 64px);
+
+    margin-top: 36px;
+  }
+
+  .explore-grid {
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 14px 12px;
+  }
+
+  .feature-card {
+    min-height: 168px;
+
+    border-radius: 30px;
+
+    padding: 12px 5px;
+  }
+
+  .icon-circle {
+    width: 54px;
+    height: 54px;
+
+    font-size: 27px;
+  }
+
+  .feature-card span:last-child {
+    font-size: 11px;
+
+    font-weight: 600;
+  }
+
+
+  /* BOTTOM */
+
+  .bottom-nav {
+    bottom: 8px;
+
+    width: calc(100% - 28px);
+
+    height: 76px;
+  }
+
+  .bottom-nav a span {
+    font-size: 25px;
+  }
+
+  .bottom-nav a small {
+    font-size: 11px;
+  }
+}
+
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-width: 390px) {
+
+  .welcome-header {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .welcome-text h1 {
+    font-size: 30px;
+  }
+
+  .church-brand img {
+    width: 58px;
+    height: 58px;
+  }
+
+  .church-brand strong {
+    font-size: 14px;
+  }
+
+  .church-brand span {
+    font-size: 10px;
+  }
+
+  .promise-card {
+    width: calc(100% - 28px);
+
+    height: 440px;
+
+    border-radius: 34px;
+  }
+
+  .promise-image,
+  .promise-dark {
+    border-radius: 34px;
+  }
+
+  .promise-content {
+    left: 28px;
+    right: 22px;
+  }
+
+  .promise-content h2 {
+    font-size: 27px;
+
+    margin-top: 20px;
+  }
+
+  .promise-content p {
+    font-size: 14px;
+  }
+
+  .explore-section {
+    width: calc(100% - 38px);
+  }
+
+  .explore-grid {
+    gap: 10px 7px;
+  }
+
+  .feature-card {
+    min-height: 145px;
+  }
+
+  .icon-circle {
+    width: 45px;
+    height: 45px;
+  }
+}

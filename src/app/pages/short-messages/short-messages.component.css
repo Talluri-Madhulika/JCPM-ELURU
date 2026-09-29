@@ -1,0 +1,165 @@
+.content-page {
+  min-height: 100vh;
+  background: #faf9ff;
+  padding-bottom: 110px;
+}
+
+.page-header {
+  background: white;
+  border-bottom: 1px solid #eee9f8;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.page-header h1 {
+  margin: 0;
+  color: #30274b;
+  font-size: 25px;
+}
+
+.page-header p {
+  margin: 4px 0 0;
+  color: #888298;
+  font-size: 13px;
+}
+
+.back-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 13px;
+  background: #eee9ff;
+  color: #654cc2;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.content-container {
+  max-width: 950px;
+  margin: auto;
+  padding: 20px 18px;
+}
+
+.search-box {
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 18px;
+  border: 1px solid #e8e2f3;
+  border-radius: 16px;
+  outline: none;
+  background: white;
+  font-size: 14px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.content-card {
+  position: relative;
+  min-height: 130px;
+  background: white;
+  border: 1px solid #eee9f8;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(70, 50, 110, 0.06);
+  transition: 0.2s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-3px);
+}
+
+.content-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: #eee9ff;
+  color: #654cc2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+}
+
+.card-content {
+  min-width: 0;
+  padding-right: 25px;
+}
+
+.category {
+  color: #765bd6;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.card-content h2 {
+  margin: 5px 0;
+  color: #30274b;
+  font-size: 17px;
+}
+
+.card-content p {
+  margin: 0;
+  color: #888298;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.favorite-btn {
+  position: absolute;
+  right: 13px;
+  top: 12px;
+  border: none;
+  background: transparent;
+  color: #d85a7b;
+  font-size: 19px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.arrow {
+  margin-left: auto;
+  color: #aaa3b7;
+  font-size: 25px;
+}
+
+.empty-state {
+  background: white;
+  border-radius: 20px;
+  padding: 55px 20px;
+  text-align: center;
+}
+
+.empty-state > div {
+  font-size: 45px;
+  color: #765bd6;
+}
+
+.empty-state h2 {
+  color: #30274b;
+}
+
+.empty-state p {
+  color: #888298;
+}
+
+@media (max-width: 650px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}

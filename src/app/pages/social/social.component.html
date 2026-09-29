@@ -1,0 +1,88 @@
+<div class="social-page">
+
+  <div class="page-header">
+
+    <div class="page-icon">◎</div>
+
+    <h1>Social</h1>
+
+    <p>Connect with JCPM ELURU</p>
+
+  </div>
+
+
+  <div class="social-container">
+
+    <div *ngIf="loading" class="loading">
+      Loading social channels...
+    </div>
+
+
+    <div
+      *ngIf="!loading && socialChannels.length === 0"
+      class="loading">
+
+      No social channels available.
+
+    </div>
+
+
+    <a
+      *ngFor="let channel of socialChannels"
+      class="social-card"
+      [href]="channel.url"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      <div class="social-icon">
+
+        <i
+          *ngIf="channel.icon === 'instagram'"
+          class="fab fa-instagram">
+        </i>
+
+        <i
+          *ngIf="channel.icon === 'youtube'"
+          class="fab fa-youtube">
+        </i>
+
+        <i
+          *ngIf="channel.icon === 'facebook'"
+          class="fab fa-facebook">
+        </i>
+
+        <span *ngIf="channel.icon === 'website'">
+          🌐
+        </span>
+
+        <span
+          *ngIf="
+            channel.icon !== 'instagram' &&
+            channel.icon !== 'youtube' &&
+            channel.icon !== 'facebook' &&
+            channel.icon !== 'website'
+          ">
+          ◎
+        </span>
+
+      </div>
+
+
+      <div class="social-info">
+
+        <h3>{{ channel.name }}</h3>
+
+        <p>
+          {{ channel.description || ('Follow JCPM ELURU on ' + channel.platform) }}
+        </p>
+
+      </div>
+
+
+      <span class="arrow">›</span>
+
+    </a>
+
+  </div>
+
+</div>
